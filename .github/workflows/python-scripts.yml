@@ -1,0 +1,70 @@
+name: Scripts Python - Verification des calculs
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  python-verify:
+    runs-on: ubuntu-latest
+    name: Executer les scripts de verification
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Analyse de l'ecart entropique
+      run: python scripts/gap_analysis.py
+
+    - name: Analyse des facteurs Type I/II
+      run: python scripts/analyze_dk.py
+
+    - name: Verification N_0 pour k=3..14 (rapide)
+      run: |
+        python - << 'PYEOF'
+        import math
+        from itertools import combinations
+        import time
+
+        def compute_S(k):
+            return math.ceil(k * math.log2(3))
+
+        def compute_d(k):
+            S = compute_S(k)
+            return (1 << S) - (3 ** k)
+
+        def count_zero_mod(k):
+            S = compute_S(k)
+            d = compute_d(k)
+            pow3 = [3 ** (k - 1 - i) for i in range(k)]
+            base = pow3[0]
+            count = 0
+            for combo in combinations(range(1, S), k - 1):
+                cs = base
+                for i, a in enumerate(combo):
+                    cs += pow3[i + 1] * (1 << a)
+                if cs % d == 0:
+                    count += 1
+            return count
+
+        all_ok = True
+        for k in range(3, 15):
+            c = count_zero_mod(k)
+            status = "OK" if c == 0 else "ECHEC"
+            print("k={}: N_0 = {} -> {}".format(k, c, status))
+            if c != 0:
+                all_ok = False
+
+        if all_ok:
+            print("SUCCES: N_0(d(k)) = 0 pour k = 3..14")
+        else:
+            print("ECHEC!")
+            exit(1)
+        PYEOF
