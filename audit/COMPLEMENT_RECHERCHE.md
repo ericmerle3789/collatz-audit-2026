@@ -110,3 +110,31 @@ Visualiser la distribution montrerait empiriquement la non-surjectivite.
 ---
 *Voir SYNTHESE_MARS2026.md pour le contexte general.*
 *Voir PISTES_CROISEES.md pour la verification des pistes explorées.*
+
+---
+
+## 6. Correction Importante: Type I n'est PAS nécessaire pour N_0=0
+
+**Découverte du 31 Mars 2026 lors de l'analyse analyze_dk.py:**
+
+La classification Type I/II est SUFFISANTE mais pas NÉCESSAIRE pour N_0=0.
+
+| k  | Facteurs Type II dans d(k)     | N_0 quand même |
+|----|-------------------------------|----------------|
+| 8  | p=7 (TII), p=233 (TII)        | 0 ✓            |
+| 12 | p=1753 (TII)                  | 0 ✓            |
+| 14 | p=79 (TII), p=45641 (TII)     | 0 ✓            |
+| 16 | p=7 (TII), p=233 (TII), p=14753 (TII) | 0 ✓   |
+
+**Interprétation:** Il existe un mécanisme plus profond qui force N_0=0
+indépendamment de la classification Type I/II. Ce mécanisme est un angle mort
+de l'explication actuelle et constitue une piste de recherche importante.
+
+**Hypothèse à explorer:** La combinaison globale des facteurs (Type I + Type II)
+dans d(k) crée une structure arithmétique qui interdit tout corrsum ≡ 0,
+même quand les facteurs Type II pris individuellement ne l'interdiraient pas.
+Cela suggère un argument de "compensation" entre facteurs, potentiellement
+lié à la structure CRT (Théorème Chinois des Restes).
+
+**Action:** Explorer si une approche CRT sur les facteurs de d(k) peut
+expliquer N_0=0 pour tous k = 3..17, y compris les cas Type II.
