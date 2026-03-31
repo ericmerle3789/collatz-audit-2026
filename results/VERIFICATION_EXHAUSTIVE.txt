@@ -75,3 +75,9 @@ NOTE: Les facteurs de d(k) confirment la structure "Type I":
   k=9:  d=13085 = 5 x 2617 (corrige)
   k=10: d=6487 = 13 x 499  (corrige)
   k=16: d=24062143 = 7 x 233 x 14753 (NOUVEAU)
+
+k=18: S=29, d(18)=149,450,423
+      Sequences testees: 21,474,180 | N_0 = 0 -> ZERO OK  [NOUVEAU]
+      Temps: 79.3s (Python 3.8, 31 Mars 2026)
+
+TOTAL k=3..18: TOUS N_0 = 0. Aucun cycle Collatz de longueur 3 a 18.
