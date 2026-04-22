@@ -1,3 +1,15 @@
+> **⚠️ Repository archived 2026-04-22 — historical audit, March 2026.**
+>
+> This meta-repository cross-referenced three Collatz research repos during the audit conducted March 2026. After the April 2026 consolidation, the **active project is [collatz-nocycle-lean4](https://github.com/ericmerle3789/collatz-nocycle-lean4)**. Two of the three originally audited repos (`Collatz-Junction-Theorem`, `collatz-cycles-lean`) have also been archived as part of that consolidation, each with a banner redirecting readers to the active project.
+>
+> Audit artifacts (`audit/SYNTHESE_MARS2026.md`, `audit/COMPLEMENT_RECHERCHE.md`, `audit/PISTES_CROISEES.md`) remain here unchanged for historical reference. The March 2026 state-of-the-art snapshot is thus preserved as-is.
+>
+> No further maintenance is planned here. Issues or questions → [active repo issue tracker](https://github.com/ericmerle3789/collatz-nocycle-lean4/issues).
+>
+> — Eric Merle, 2026-04-22
+
+---
+
 # Collatz Audit 2026
 
 **Audit et résultats de recherche sur la conjecture de Collatz**  
